@@ -1,3 +1,4 @@
+from typing import Any
 from django.http import HttpResponse
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
@@ -19,3 +20,7 @@ class ScoreCreate(CreateView):
     model = Score
     form_class = ScoreCreateForm
     template_name = "sspscoresapp/score_create_form.html"
+
+    def get_initial(self):
+        self.initial.update({ 'player' : self.request.user })
+        return self.initial
