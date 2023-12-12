@@ -1,5 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="{% static 'sspscoresapp/style.css' %}" />
+    </head>
     <body>
         <h1>Scores</h1>
         <button type="button"><a href="{% url 'scorecreate' %}">Add Score</a></button>
