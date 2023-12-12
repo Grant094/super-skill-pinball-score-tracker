@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Scores</h1>
+        <button type="button"><a href="{% url 'scorecreate' %}">Add Score</a></button>
+        <br />
+        <br />
+        <table>
+            <tr>
+                <th>Pin</th>
+                <th>Score</th>
+            </tr>
+            {% for score in object_list %}
+            <tr>
+                <td>{{ score.pin }}</td>
+                <td>{{ score.score }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
