@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Scores</h1>
+        <ul>
+            {% for score in object_list %}
+            <li>{{ score.score }} in {{ score.pin }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
