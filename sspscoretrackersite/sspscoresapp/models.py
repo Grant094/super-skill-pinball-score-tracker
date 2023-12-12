@@ -4,25 +4,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Score(models.Model):
-    score = models.IntegerField(default=0)
-    timestamp = models.DateTimeField(auto_now_add=True)
-    pin = models.ForeignKey('Pin', on_delete=models.CASCADE)
-    player = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    variant = models.ForeignKey('Variant', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return str(self.score) + " on " + str(self.pin) + " at " + str(self.timestamp) + " by " + str(self.player)
-    
-    def get_absolute_url(self):
-        return reverse('scores-list')
-    
-class Pin(models.Model):
-    name = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.name
-
-class Variant(models.Model):
     SOLO = "SOLO"
     FFA2P = "FFA2P" # FREE-FOR-ALL TWO-PLAYER
     FFA3P = "FFA3P" # FREE-FOR-ALL THREE-PLAYER
@@ -36,4 +17,21 @@ class Variant(models.Model):
         (COOP2P, 'Cooperative Two-Player'),
     )
 
-    name = models.CharField(max_length=6, choices=VARIANT_CHOICES, default=SOLO)
+    score = models.IntegerField(default=0)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    pin = models.ForeignKey('Pin', on_delete=models.CASCADE)
+    player = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    variant = models.CharField(max_length=6, choices=VARIANT_CHOICES, default=SOLO)
+
+    def __str__(self):
+        return str(self.score) + " on " + str(self.pin) + " at " + str(self.timestamp) + " by " + str(self.player)
+    
+    def get_absolute_url(self):
+        return reverse('scores-list')
+    
+class Pin(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
