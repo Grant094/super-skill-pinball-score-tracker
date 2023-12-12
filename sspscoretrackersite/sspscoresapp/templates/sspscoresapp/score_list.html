@@ -2,10 +2,17 @@
 <html>
     <body>
         <h1>Scores</h1>
-        <ul>
+        <table>
+            <tr>
+                <th>Pin</th>
+                <th>Score</th>
+            </tr>
             {% for score in object_list %}
-            <li>{{ score.score }} in {{ score.pin }}</li>
+            <tr>
+                <td>{{ score.pin }}</td>
+                <td>{{ score.score }}</td>
+            </tr>
             {% endfor %}
-        </ul>
+        </table>
     </body>
 </html>
