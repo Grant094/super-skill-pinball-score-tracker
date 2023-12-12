@@ -8,6 +8,7 @@ class Score(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     pin = models.ForeignKey('Pin', on_delete=models.CASCADE)
     player = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    variant = models.ForeignKey('Variant', on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.score) + " on " + str(self.pin) + " at " + str(self.timestamp) + " by " + str(self.player)
@@ -34,5 +35,5 @@ class Variant(models.Model):
         (FFA4P, 'Free-for-All Four-Player'),
         (COOP2P, 'Cooperative Two-Player'),
     )
-    
+
     name = models.CharField(max_length=6, choices=VARIANT_CHOICES, default=SOLO)
