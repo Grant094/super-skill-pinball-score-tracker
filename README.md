@@ -12,3 +12,14 @@ This app is in no way affiliated with WizKids or the Super-Skill Pinball brand.
 - HTML
 - Python
 - Django
+
+# Quickstart
+- Install Python on your computer, possibly via https://www.python.org/downloads/
+- Create a virtual environment by running `python -m venv venv`
+- Activate the virtual environment by executing the file `venv/bin/activate`
+- Install Django: `python -m pip install Django`
+- Setup Database:
+    - Run `python manage.py makemigrations`
+    - Run `python manage.py migrate`
+- Run server: `python manage.py runserver`
+- Visit https://localhost:8000/ to see the homepage!
