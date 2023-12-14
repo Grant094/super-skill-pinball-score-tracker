@@ -7,3 +7,8 @@ These games are made by [WizKids](https://wizkids.com/) and you can see more inf
 - [Super-Skill Pinball: Ramp It Up!](https://shop.wizkids.com/products/super-skill-pinball-ramp-it-up)
 
 This app is in no way affiliated with WizKids or the Super-Skill Pinball brand.
+
+# Tech
+- HTML
+- Python
+- Django
