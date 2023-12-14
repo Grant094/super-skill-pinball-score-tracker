@@ -1,4 +1,4 @@
-import csv
+import csv, os, zipfile
 from typing import Any
 from django.http import HttpResponse
 from django.views.generic.list import ListView
@@ -65,3 +65,10 @@ def export_users_csv(request):
         writer.writerow(user)
 
     return response
+
+def export_all(request):
+    scores = export_scores_csv(request)
+    pins = export_pins_csv(request)
+    users = export_users_csv(request)
+
+    
