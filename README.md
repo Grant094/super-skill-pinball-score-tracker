@@ -15,6 +15,7 @@ This app is in no way affiliated with WizKids or the Super-Skill Pinball brand.
 
 # Quickstart
 - Install Python on your computer, possibly via https://www.python.org/downloads/
+- Open a terminal and be at `super-skill-pinball-score-tracker/sspscoretrackersite/`
 - Create a virtual environment by running `python -m venv venv`
 - Activate the virtual environment by executing the file `venv/bin/activate`
 - Install Django: `python -m pip install Django`
