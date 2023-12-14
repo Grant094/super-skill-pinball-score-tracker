@@ -1,3 +1,4 @@
+import csv
 from typing import Any
 from django.http import HttpResponse
 from django.views.generic.list import ListView
@@ -25,3 +26,16 @@ class ScoreCreate(CreateView):
     def get_initial(self):
         self.initial.update({ 'player' : self.request.user })
         return self.initial
+
+def export_users_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="sspscores.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['timestamp', 'player', 'pin', 'variant', 'score'])
+
+    users = Score.objects.all().values_list('timestamp', 'player', 'pin', 'variant', 'score')
+    for user in users:
+        writer.writerow(user)
+
+    return response
