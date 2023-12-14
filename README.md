@@ -12,6 +12,8 @@ This app is in no way affiliated with WizKids or the Super-Skill Pinball brand.
 - HTML
 - Python
 - Django
+- JavaScript
+- React.js
 
 # Quickstart
 - Install Python on your computer, possibly via https://www.python.org/downloads/
