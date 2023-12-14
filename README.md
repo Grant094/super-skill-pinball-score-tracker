@@ -1,2 +1,2 @@
 # super-skill-pinball-score-tracker
-Tracking scores recorded in Super Skill Pinball games
+Tracking my scores recorded in the Super Skill Pinball games.
