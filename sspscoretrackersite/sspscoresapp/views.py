@@ -34,8 +34,8 @@ def export_users_csv(request):
     writer = csv.writer(response)
     writer.writerow(['timestamp', 'player', 'pin', 'variant', 'score'])
 
-    users = Score.objects.all().values_list('timestamp', 'player', 'pin', 'variant', 'score')
-    for user in users:
-        writer.writerow(user)
+    scores = Score.objects.all().values_list('timestamp', 'player', 'pin', 'variant', 'score')
+    for score in scores:
+        writer.writerow(score)
 
     return response
