@@ -27,7 +27,7 @@ class ScoreCreate(CreateView):
         self.initial.update({ 'player' : self.request.user })
         return self.initial
 
-def export_users_csv(request):
+def export_scores_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="sspscores.csv"'
 
@@ -52,3 +52,4 @@ def export_pins_csv(request):
         writer.writerow(pin)
 
     return response
+
