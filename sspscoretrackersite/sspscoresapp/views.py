@@ -32,9 +32,9 @@ def export_users_csv(request):
     response['Content-Disposition'] = 'attachment; filename="sspscores.csv"'
 
     writer = csv.writer(response)
-    writer.writerow(['timestamp', 'player', 'pin', 'variant', 'score'])
+    writer.writerow(['id', 'timestamp', 'player', 'pin', 'variant', 'score'])
 
-    scores = Score.objects.all().values_list('timestamp', 'player', 'pin', 'variant', 'score')
+    scores = Score.objects.all().values_list('id', 'timestamp', 'player', 'pin', 'variant', 'score')
     for score in scores:
         writer.writerow(score)
 
