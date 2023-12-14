@@ -53,3 +53,15 @@ def export_pins_csv(request):
 
     return response
 
+def export_users_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="sspusers.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['id', 'username', 'first_name', 'last_name', 'email'])
+
+    users = User.objects.all().values_list('id', 'username', 'first_name', 'last_name', 'email')
+    for user in users:
+        writer.writerow(user)
+
+    return response
