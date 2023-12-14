@@ -39,3 +39,16 @@ def export_users_csv(request):
         writer.writerow(score)
 
     return response
+
+def export_pins_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="ssppins.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['id', 'name'])
+
+    pins = Pin.objects.all().values_list('id', 'name')
+    for pin in pins:
+        writer.writerow(pin)
+
+    return response
